@@ -22,9 +22,19 @@ gtag('config', 'G-J0TLK8JSKJ');
 /* Automatic Listing View */
 gtag('event','listing_view');
 
-function trackEvent(eventName){
+function trackEvent(eventName, businessName = ''){
 
-  gtag('event', eventName);
+  if(businessName !== ''){
+
+    gtag('event', eventName, {
+      business_name: businessName
+    });
+
+  }else{
+
+    gtag('event', eventName);
+
+  }
 
   console.log(eventName + ' tracked');
 
@@ -42,6 +52,20 @@ function performSearch(){
 
   alert(
     'Search tracked: ' + keyword
+  );
+
+}
+
+function trackBusinessClick(businessName){
+
+  gtag('event','business_card_click',{
+
+    business_name: businessName
+
+  });
+
+  alert(
+    businessName + ' viewed'
   );
 
 }
@@ -196,6 +220,29 @@ button:hover{
   transform:translateY(-2px);
 }
 
+.business-card{
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.business-card:hover{
+  transform:translateY(-2px);
+}
+
+.business-name-small{
+  font-size:20px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+.business-category{
+  color:#666;
+  font-size:14px;
+}
 </style>
 
 </head>
@@ -366,7 +413,73 @@ button:hover{
     </div>
 
   </div>
+<div class="section">
 
+  <div class="section-title">
+    Popular Businesses
+  </div>
+
+  <div class="stats">
+
+    <div
+      class="business-card"
+      onclick="trackBusinessClick('VisionForge AI Studio')">
+
+      <div class="business-name-small">
+        VisionForge AI Studio
+      </div>
+
+      <div class="business-category">
+        AI Solutions
+      </div>
+
+    </div>
+
+    <div
+      class="business-card"
+      onclick="trackBusinessClick('BruCoffee Hub')">
+
+      <div class="business-name-small">
+        BruCoffee Hub
+      </div>
+
+      <div class="business-category">
+        Café
+      </div>
+
+    </div>
+
+    <div
+      class="business-card"
+      onclick="trackBusinessClick('Trex Enterprise')">
+
+      <div class="business-name-small">
+        Trex Enterprise
+      </div>
+
+      <div class="business-category">
+        Retail
+      </div>
+
+    </div>
+
+    <div
+      class="business-card"
+      onclick="trackBusinessClick('Digital Wave Solutions')">
+
+      <div class="business-name-small">
+        Digital Wave Solutions
+      </div>
+
+      <div class="business-category">
+        Marketing
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 </div>
 
 </body>
