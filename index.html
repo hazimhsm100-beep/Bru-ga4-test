@@ -3,159 +3,197 @@
 
 <head>
 
-  <title>BruPages Analytics Test</title>
+<title>BruPages Analytics Test</title>
 
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J0TLK8JSKJ"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-J0TLK8JSKJ"></script>
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
+<script>
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-      dataLayer.push(arguments);
-    }
+function gtag(){
+  dataLayer.push(arguments);
+}
 
-    gtag('js', new Date());
+gtag('js', new Date());
 
-    gtag('config', 'G-J0TLK8JSKJ');
+gtag('config', 'G-J0TLK8JSKJ');
 
-    function trackEvent(eventName) {
-      gtag('event', eventName);
-      console.log(eventName + ' tracked');
-    }
-  </script>
+/* Automatic Listing View */
+gtag('event','listing_view');
 
-  <style>
+function trackEvent(eventName){
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, sans-serif;
-    }
+  gtag('event', eventName);
 
-    body{
-      background:#F5F7FB;
-      color:#1F2A3A;
-      padding:40px;
-    }
+  console.log(eventName + ' tracked');
 
-    .container{
-      max-width:1000px;
-      margin:auto;
-    }
+}
 
-    .hero{
-      background:white;
-      border-radius:16px;
-      overflow:hidden;
-      box-shadow:0 4px 20px rgba(0,0,0,0.08);
-      margin-bottom:30px;
-    }
+function performSearch(){
 
-    .banner{
-      height:250px;
-      background:linear-gradient(135deg,#1F2A3A,#324863);
-    }
+  const keyword =
+    document.getElementById('searchBox').value;
 
-    .content{
-      padding:30px;
-    }
+  gtag('event','search_performed',{
+    search_term: keyword
+  });
 
-    .business-name{
-      font-size:32px;
-      font-weight:bold;
-      margin-bottom:10px;
-    }
+  alert('Search tracked: ' + keyword);
 
-    .category{
-      color:#666;
-      margin-bottom:20px;
-    }
+}
+</script>
 
-    .description{
-      color:#555;
-      line-height:1.6;
-      margin-bottom:25px;
-    }
+<style>
 
-    .buttons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-bottom:30px;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
 
-    button{
-      border:none;
-      border-radius:10px;
-      padding:14px 20px;
-      font-weight:bold;
-      cursor:pointer;
-      color:white;
-      transition:0.2s;
-    }
+body{
+  background:#F5F7FB;
+  color:#1F2A3A;
+  padding:40px;
+}
 
-    button:hover{
-      transform:translateY(-2px);
-    }
+.container{
+  max-width:1100px;
+  margin:auto;
+}
 
-    .whatsapp{
-      background:#25D366;
-    }
+.hero{
+  background:white;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 4px 20px rgba(0,0,0,0.08);
+  margin-bottom:30px;
+}
 
-    .website{
-      background:#2D7FF9;
-    }
+.banner{
+  height:280px;
+  background:linear-gradient(135deg,#1F2A3A,#324863);
+}
 
-    .save{
-      background:#F5A623;
-    }
+.content{
+  padding:30px;
+}
 
-    .enquiry{
-      background:#1F2A3A;
-    }
+.business-name{
+  font-size:34px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
 
-    .promo{
-      background:#8E44AD;
-    }
+.category{
+  color:#666;
+  margin-bottom:20px;
+}
 
-    .stats{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:15px;
-    }
+.description{
+  color:#555;
+  line-height:1.6;
+  margin-bottom:25px;
+}
 
-    .card{
-      background:white;
-      border-radius:12px;
-      padding:20px;
-      box-shadow:0 2px 8px rgba(0,0,0,0.06);
-    }
+.buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+}
 
-    .card-title{
-      color:#666;
-      font-size:14px;
-      margin-bottom:8px;
-    }
+button{
+  border:none;
+  border-radius:10px;
+  padding:14px 20px;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.2s;
+}
 
-    .card-value{
-      font-size:24px;
-      font-weight:bold;
-      color:#2D7FF9;
-    }
+button:hover{
+  transform:translateY(-2px);
+}
 
-    .section{
-      margin-top:30px;
-    }
+.whatsapp{
+  background:#25D366;
+}
 
-    .section-title{
-      font-size:22px;
-      font-weight:bold;
-      margin-bottom:20px;
-    }
+.website{
+  background:#2D7FF9;
+}
 
-  </style>
+.save{
+  background:#F5A623;
+}
+
+.enquiry{
+  background:#1F2A3A;
+}
+
+.promo{
+  background:#8E44AD;
+}
+
+.section{
+  margin-top:30px;
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+.search-box{
+  width:100%;
+  padding:15px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  margin-bottom:15px;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+}
+
+.card-title{
+  color:#666;
+  margin-bottom:8px;
+}
+
+.card-value{
+  font-size:24px;
+  font-weight:bold;
+  color:#2D7FF9;
+}
+
+.recommendation-card{
+  background:white;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  cursor:pointer;
+  transition:0.2s;
+}
+
+.recommendation-card:hover{
+  transform:translateY(-2px);
+}
+
+</style>
 
 </head>
 
@@ -178,32 +216,37 @@
       </div>
 
       <div class="description">
-        This is a sample BruPages Business Listing created for testing Google Analytics 4 events and business engagement metrics.
+        Sample BruPages business listing used for testing Business Suite analytics and Google Analytics 4 event tracking.
       </div>
 
       <div class="buttons">
 
-        <button class="whatsapp"
+        <button
+          class="whatsapp"
           onclick="trackEvent('whatsapp_click')">
           WhatsApp Business
         </button>
 
-        <button class="website"
+        <button
+          class="website"
           onclick="trackEvent('website_click')">
           Visit Website
         </button>
 
-        <button class="save"
+        <button
+          class="save"
           onclick="trackEvent('saved_listing')">
           Save Listing
         </button>
 
-        <button class="enquiry"
+        <button
+          class="enquiry"
           onclick="trackEvent('enquiry_submit')">
           Send Enquiry
         </button>
 
-        <button class="promo"
+        <button
+          class="promo"
           onclick="trackEvent('promotion_click')">
           View Promotion
         </button>
@@ -246,8 +289,82 @@
 
   </div>
 
+  <div class="section">
+
+    <div class="section-title">
+      Search Businesses
+    </div>
+
+    <input
+      id="searchBox"
+      class="search-box"
+      type="text"
+      placeholder="Search businesses..."
+    >
+
+    <button
+      class="website"
+      onclick="performSearch()">
+      Search
+    </button>
+
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">
+      Recommended For You
+    </div>
+
+    <div class="stats">
+
+      <div
+        class="recommendation-card"
+        onclick="trackEvent('ai_recommendation_click')">
+
+        <div class="card-title">
+          AI Recommended
+        </div>
+
+        <div class="card-value">
+          Trex Enterprise
+        </div>
+
+      </div>
+
+      <div
+        class="recommendation-card"
+        onclick="trackEvent('ai_recommendation_click')">
+
+        <div class="card-title">
+          AI Recommended
+        </div>
+
+        <div class="card-value">
+          BruCoffee Hub
+        </div>
+
+      </div>
+
+      <div
+        class="recommendation-card"
+        onclick="trackEvent('ai_recommendation_click')">
+
+        <div class="card-title">
+          AI Recommended
+        </div>
+
+        <div class="card-value">
+          VisionForge AI
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </div>
 
 </body>
-
 </html>
