@@ -2,23 +2,251 @@
 <html>
 
 <head>
-<title>BruPages Analytics Test</title>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-J0TLK8JSKJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-J0TLK8JSKJ');
-</script>
+  <title>BruPages Analytics Test</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-J0TLK8JSKJ"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-J0TLK8JSKJ');
+
+    function trackEvent(eventName) {
+      gtag('event', eventName);
+      console.log(eventName + ' tracked');
+    }
+  </script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#F5F7FB;
+      color:#1F2A3A;
+      padding:40px;
+    }
+
+    .container{
+      max-width:1000px;
+      margin:auto;
+    }
+
+    .hero{
+      background:white;
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:0 4px 20px rgba(0,0,0,0.08);
+      margin-bottom:30px;
+    }
+
+    .banner{
+      height:250px;
+      background:linear-gradient(135deg,#1F2A3A,#324863);
+    }
+
+    .content{
+      padding:30px;
+    }
+
+    .business-name{
+      font-size:32px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+
+    .category{
+      color:#666;
+      margin-bottom:20px;
+    }
+
+    .description{
+      color:#555;
+      line-height:1.6;
+      margin-bottom:25px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-bottom:30px;
+    }
+
+    button{
+      border:none;
+      border-radius:10px;
+      padding:14px 20px;
+      font-weight:bold;
+      cursor:pointer;
+      color:white;
+      transition:0.2s;
+    }
+
+    button:hover{
+      transform:translateY(-2px);
+    }
+
+    .whatsapp{
+      background:#25D366;
+    }
+
+    .website{
+      background:#2D7FF9;
+    }
+
+    .save{
+      background:#F5A623;
+    }
+
+    .enquiry{
+      background:#1F2A3A;
+    }
+
+    .promo{
+      background:#8E44AD;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:15px;
+    }
+
+    .card{
+      background:white;
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .card-title{
+      color:#666;
+      font-size:14px;
+      margin-bottom:8px;
+    }
+
+    .card-value{
+      font-size:24px;
+      font-weight:bold;
+      color:#2D7FF9;
+    }
+
+    .section{
+      margin-top:30px;
+    }
+
+    .section-title{
+      font-size:22px;
+      font-weight:bold;
+      margin-bottom:20px;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-<h1>BruPages Analytics Test</h1>
+<div class="container">
 
-<p>Hello World</p>
+  <div class="hero">
+
+    <div class="banner"></div>
+
+    <div class="content">
+
+      <div class="business-name">
+        VisionForge AI Studio
+      </div>
+
+      <div class="category">
+        AI Solutions • Digital Marketing • Business Automation
+      </div>
+
+      <div class="description">
+        This is a sample BruPages Business Listing created for testing Google Analytics 4 events and business engagement metrics.
+      </div>
+
+      <div class="buttons">
+
+        <button class="whatsapp"
+          onclick="trackEvent('whatsapp_click')">
+          WhatsApp Business
+        </button>
+
+        <button class="website"
+          onclick="trackEvent('website_click')">
+          Visit Website
+        </button>
+
+        <button class="save"
+          onclick="trackEvent('saved_listing')">
+          Save Listing
+        </button>
+
+        <button class="enquiry"
+          onclick="trackEvent('enquiry_submit')">
+          Send Enquiry
+        </button>
+
+        <button class="promo"
+          onclick="trackEvent('promotion_click')">
+          View Promotion
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section">
+
+    <div class="section-title">
+      Business Insights Preview
+    </div>
+
+    <div class="stats">
+
+      <div class="card">
+        <div class="card-title">Business Suite</div>
+        <div class="card-value">Active</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Category Rank</div>
+        <div class="card-value">#12</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">AI Recommendation</div>
+        <div class="card-value">Enabled</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Search Visibility</div>
+        <div class="card-value">84%</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
 </body>
 
