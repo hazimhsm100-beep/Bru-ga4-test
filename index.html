@@ -35,11 +35,14 @@ function performSearch(){
   const keyword =
     document.getElementById('searchBox').value;
 
-  gtag('event','search_performed',{
-    search_term: keyword
-  });
+  gtag(
+    'event',
+    'search_' + keyword
+  );
 
-  alert('Search tracked: ' + keyword);
+  alert(
+    'Search tracked: ' + keyword
+  );
 
 }
 </script>
